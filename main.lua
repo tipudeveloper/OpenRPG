@@ -8,6 +8,7 @@ function addInfo(t, info)
 end
 
 function love.load()
+    love.graphics.setDefaultFilter("nearest", "nearest")
     addInfo(table1, "Hello")
     addInfo(table2, "World")
     scene:load("main_menu")
