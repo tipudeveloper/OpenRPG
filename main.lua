@@ -1,6 +1,8 @@
 table1 = {}
 table2 = {}
 
+local scene = require "src.scene"
+
 function addInfo(t, info)
     table.insert(t, info)
 end
@@ -8,12 +10,13 @@ end
 function love.load()
     addInfo(table1, "Hello")
     addInfo(table2, "World")
+    scene:load()
 end
 
 function love.update(dt)
+    scene:update(dt)
 end
 
 function love.draw()
-    love.graphics.print(table1[1], 10, 10)
-    love.graphics.print(table2[1], 10, 30)
+    scene:draw()
 end
