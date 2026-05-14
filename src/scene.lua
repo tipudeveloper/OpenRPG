@@ -1,8 +1,8 @@
 local scene = {}
 
-function scene:load()
-    main_menu = require "src.scenes.main_menu"
-    self.scene = main_menu
+function scene:load(scene_name)
+    local scene_module = require("src.scenes." .. scene_name)
+    self.scene = scene_module
     if self.scene.load then
         self.scene:load()
     end
@@ -17,6 +17,12 @@ end
 function scene:draw()
     if self.scene and self.scene.draw then
         self.scene:draw()
+    end
+end
+
+function scene:keypressed(key)
+    if self.scene and self.scene.keypressed then
+        self.scene:keypressed(key)
     end
 end
 

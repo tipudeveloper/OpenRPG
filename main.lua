@@ -10,7 +10,7 @@ end
 function love.load()
     addInfo(table1, "Hello")
     addInfo(table2, "World")
-    scene:load()
+    scene:load("main_menu")
 end
 
 function love.update(dt)
@@ -19,4 +19,8 @@ end
 
 function love.draw()
     scene:draw()
+end
+
+function love.keypressed(key)
+    scene:keypressed(key)
 end
